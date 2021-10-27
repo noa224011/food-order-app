@@ -1,6 +1,6 @@
-import classes from "./MealsSummery.module.css";
+import classes from "./MealsSummary.module.css";
 
-function MealsSummery() {
+function MealsSummary() {
   return (
     <section className={classes.summary}>
       <h2>Delicious Food, Delivered To You</h2>
@@ -16,4 +16,4 @@ function MealsSummery() {
   );
 }
 
-export default MealsSummery;
+export default MealsSummary;
