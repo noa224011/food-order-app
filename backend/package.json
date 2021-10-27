@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noa224011/food-order-app.git"
+  },
+  "author": "noa-shay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noa224011/food-order-app/issues"
+  },
+  "homepage": "https://github.com/noa224011/food-order-app#readme"
+}
