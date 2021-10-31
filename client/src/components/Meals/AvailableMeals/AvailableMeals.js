@@ -40,9 +40,11 @@ function AvailableMeals() {
     ></MealItem>
   ));
   return (
-    <Card className={classes.meals}>
-      <ul>{mealsList}</ul>
-    </Card>
+    <section className={classes.meals}>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
+    </section>
   );
 }
 
