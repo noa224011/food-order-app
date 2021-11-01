@@ -2,19 +2,19 @@ const orderSchema = require("../models/order");
 
 module.exports = {
   createNewOrder: (req, res) => {
-    const { id, name, amount, price } = req.body;
-    const order = new orderSchema({
-      id,
-      name,
-      amount,
-      price,
+    const order = req.body.order;
+    console.log("body:", req.body);
+    console.log("order", order);
+    const newOrder = new orderSchema({
+      order,
     });
 
-    order
+    newOrder
       .save()
-      .then(() => {
+      .then((order) => {
         res.status(200).json({
           message: "Created new order successfully",
+          order,
         });
       })
       .catch((error) => {
