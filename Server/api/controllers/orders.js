@@ -23,4 +23,21 @@ module.exports = {
         });
       });
   },
+
+  getOrderById: (req, res) => {
+    const orderId = req.params.orderId;
+
+    orderSchema
+      .findById(orderId)
+      .then((order) => {
+        res.status(200).json({
+          order,
+        });
+      })
+      .catch((error) => {
+        res.status(500).json({
+          error,
+        });
+      });
+  },
 };

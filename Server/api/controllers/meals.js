@@ -1,4 +1,3 @@
-const data = require("../routes/data");
 const mealsSchema = require("../models/meals");
 
 module.exports = {
@@ -14,6 +13,7 @@ module.exports = {
         });
       });
   },
+
   getMealById: (req, res) => {
     const mealId = req.params.mealId;
 
