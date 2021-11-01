@@ -3,49 +3,43 @@ import Card from "../../UI/Card/Card";
 import MealItem from "../MealItem/MealItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 60.99,
-  },
-  {
-    id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 30.5,
-  },
-  {
-    id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 80.99,
-  },
-  {
-    id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 50.99,
-  },
-];
+import Spinner from "../../UI/Spinner/Spinner";
 
 function AvailableMeals() {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState(null);
 
   useEffect(() => {
     async function fetchMeals() {
-      try {
-        const response = await axios.get("http://localhost:3001/meals");
-        const responseData = await response.data.meals;
-        setMeals(responseData);
-      } catch (error) {
-        console.log(error);
+      const response = await axios.get("http://localhost:3001/meals");
+
+      if (!(response.status === 200)) {
+        throw new Error("Something went wrong!");
       }
+
+      const responseData = await response.data.meals;
+      setMeals(responseData);
+      setIsLoading(false);
     }
-    fetchMeals();
+
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.mealsError}>
+        <h2>{httpError}</h2>
+      </section>
+    );
+  }
 
   const mealsList = meals.map((meal) => (
     <MealItem
