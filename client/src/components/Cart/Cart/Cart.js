@@ -28,14 +28,19 @@ function Cart(props) {
   async function submitOrderHandler(userData) {
     setIsSubmitting(true);
 
+    const body = JSON.stringify({
+      userInfo: userData,
+      orderItems: cartCtx.items,
+    });
+
     try {
-      const response = await axios.post(
-        "http://localhost:3001/order",
-        JSON.stringify({
-          userInfo: userData,
-          orderItems: cartCtx.items,
-        })
-      );
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:3001/order",
+        data: body,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
