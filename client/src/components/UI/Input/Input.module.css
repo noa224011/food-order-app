@@ -11,9 +11,16 @@
 }
 
 .input input {
-  width: 3rem;
+  width: 2rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   font: inherit;
   padding-left: 0.5rem;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
