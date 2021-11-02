@@ -30,7 +30,7 @@ function AvailableMeals() {
   }, []);
 
   if (isLoading) {
-    return <Spinner />;
+    return <Spinner>Loading...</Spinner>;
   }
 
   if (httpError) {
