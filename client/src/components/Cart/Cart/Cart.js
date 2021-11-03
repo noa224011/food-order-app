@@ -38,10 +38,11 @@ function Cart(props) {
         method: "post",
         url: "http://localhost:3001/order",
         data: body,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "application/json" },
       });
       console.log(response);
     } catch (error) {
+      setDidSubmit(false);
       console.log(error);
     }
     setIsSubmitting(false);
@@ -97,7 +98,9 @@ function Cart(props) {
 
   const didSubmitModalContent = (
     <React.Fragment>
-      <p>Successfuly sent the order!</p>
+      <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
+        Successfuly sent the order!
+      </p>
       <div className={classes.actions}>
         <button className={classes.button} onClick={props.onClose}>
           Close
@@ -107,7 +110,7 @@ function Cart(props) {
   );
 
   return (
-    <Modal onClose={props.onClose}>
+    <Modal onClose={props.onClose} onLoading={isSubmitting}>
       {!isSubmitting && !didSubmit && cartModalContent}
       {isSubmitting && isSubmittingModalContent}
       {!isSubmitting && didSubmit && didSubmitModalContent}
