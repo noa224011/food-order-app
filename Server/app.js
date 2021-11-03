@@ -16,6 +16,10 @@ mongoose.connection.on("connected", () => {
   console.log("MongoDB Connected!");
 });
 
+mongoose.connection.on("error", (error) => {
+  console.log(error);
+});
+
 const mealsRoutes = require("./api/routes/meals");
 const orderRoutes = require("./api/routes/orders");
 
