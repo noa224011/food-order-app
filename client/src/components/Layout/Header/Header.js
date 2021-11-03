@@ -1,6 +1,6 @@
 import classes from "./Header.module.css";
 import { Fragment } from "react";
-import mealsImage from "../../../assets/meals.jpg";
+import mealsImage from "../../../assets/meals5.jpg";
 import HeaderCartButton from "../HeaderCartButton/HeaderCartButton";
 
 function Header(props) {

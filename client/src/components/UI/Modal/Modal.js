@@ -12,7 +12,9 @@ function Modal(props) {
         portalElement
       )}
       {ReactDom.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <ModalOverlay onLoading={props.onLoading}>
+          {props.children}
+        </ModalOverlay>,
         portalElement
       )}
     </Fragment>

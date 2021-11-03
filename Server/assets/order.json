@@ -1,0 +1,22 @@
+{
+    "userInfo": {
+        "name": "Noa Shay",
+        "street": "Harav Herzog",
+        "city": "Petah Tikva",
+        "postalCode": "12345"
+    },
+    "orderItems": [
+        {
+            "id": "m1",
+            "name": "Sushi",
+            "amount": 2,
+            "price": "60.99"
+        },
+        {
+            "id": "m2",
+            "name": "Schnitzel",
+            "amount": 5,
+            "price": 30.5
+        }
+    ]
+}
